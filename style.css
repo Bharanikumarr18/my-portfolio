@@ -1,7 +1,8 @@
-/* ====== General Reset & Layout ====== */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
+
 body {
+  font-family: 'EB Garamond', Garamond, serif;
   background-color: rgb(0, 0, 0);
-  font-family: 'Open Sans', Arial, sans-serif;
   margin: 0;
   padding: 0;
   color: #000;
@@ -63,7 +64,7 @@ main {
   padding: 25px 30px;
   margin: 40px auto;
   box-shadow: 0 4px 30px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease, border 0.5s ease;
   position: relative;
   overflow: hidden;
   width: 90%;
@@ -71,9 +72,14 @@ main {
   box-sizing: border-box;
 }
 .section-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 30px 35px rgba(0, 0, 0, 0.25);
+  filter: brightness(1.07);
+  border: 2px solid #3742fa;
+  background-color: #f9fbff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
+
 .section-box::after {
   content: "";
   position: absolute;
@@ -90,24 +96,33 @@ main {
 .name-photo-section {
   display: flex;
   flex-direction: column;
+  padding-top: 2%;
   align-items: center;
   justify-content: center;
-  margin-top: 0;
+  margin-top: 40px;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
 }
 .profile-pic {
   width: 240px;
   height: 240px;
   border-radius: 50%;
+  transform: scale(0.95em);
+  position: relative;
+  top: 20px;
   object-fit: cover;
+  object-fit: contain;
+  margin-top: 20px;
   margin-bottom: 20px;
-  border: 1px solid rgb(231, 216, 201);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(183, 183, 185);
+  box-shadow: 0 50px 102px rgba(153, 147, 147, 0.1);
+  transform-origin: center center;
   transition: box-shadow 0.3s, transform 0.3s; /* Enables smooth hover effect */
 }
 
 .profile-pic:hover {
-  box-shadow: 0 8px 32px rgba(55,66,250,0.28);
-  transform: scale(1.045);            /* Slight zoom in */
+  box-shadow: 0 8px 32px rgba(11, 21, 211, 0.28);
+  transform: scale(1.1);            /* Slight zoom in */
   transition: box-shadow 0.3s, transform 0.3s; /* Ensures smooth transition */
 }
 .your-name {
@@ -482,21 +497,17 @@ h1, h2, h3, h4, h5 {
   box-shadow: 0 6px 22px rgba(55,66,250,0.18);
 }
 
-/* Responsive: stack button above content on small screens */
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .floating-btn-wrapper {
-    position: static;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 12px;
-    top: auto;
-    left: auto;
+    width: 100vw;
+    margin-bottom: 8px;
   }
   .floating-btn-wrapper .resume-btn {
-    width: 90vw;
-    max-width: 320px;
-    padding: 12px 0;
-    margin-left: 0;
+    width: 95vw;
+    max-width: 340px;
+    margin: 0 0 9px 0;
+    padding: 10px 0;
+    font-size: 1em;
   }
 }
 .intern-box {
@@ -718,4 +729,155 @@ h1, h2, h3, h4, h5 {
   background-size: 20px 20px;
   vertical-align: middle;
   filter: invert(100%);
+}
+.project-actions {
+  display: flex;
+  flex-direction: row;    /* Ensures children are in a row */
+  gap: 18px;              /* Space between icons */
+  margin-top: 12px;
+  justify-content: flex-start; /* Align left (or use center if you prefer) */
+}
+
+.project-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.project-action-btn:hover {
+  filter: brightness(1.4);
+}
+
+.icon-btn {
+  width: 28px;
+  height: 28px;
+}
+
+.download-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url('assets/images/download-arrow.svg') no-repeat center center;
+  filter: invert(0);
+  background-size: 24px 24px;
+}
+.project-download-icon {
+  filter: invert(0);
+}
+
+/* Only for users/browsers in dark mode: */
+@media (prefers-color-scheme: dark) {
+  .project-download-icon {
+    filter: invert(1);
+  }
+}
+.project-download-icon {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: url('assets/images/DOWNLOAD.svg') no-repeat center center;
+  background-size: 24px 24px;
+  vertical-align: middle;
+  filter: invert(0); /* Default: show exact icon color */
+}
+
+@media (prefers-color-scheme: dark) {
+  .project-download-icon {
+    filter: invert(0); /* Invert for dark mode if the icon is black */
+  }
+}
+.contact-items-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Horizontally center all rows within the section box */
+}
+.contact-item {
+  display: flex;              /* Make the row flex for icon+text */
+  align-items: center;        /* Vertically align icon and text */
+  gap: 12px;                  /* Space between icon and text */
+  margin: 0px 0;
+  min-width: 240px;           /* Optional: prevents excessive text wrapping on small screens */
+}
+
+.contact-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.contact-section span {
+  font-size: 1.12em;
+  color: #000;
+  /* Remove text-align: center for better alignment */
+}
+
+/* Override font for all section headings */
+section h1,
+section h2,
+section h3,
+section h4,
+section h5,
+section h6,
+.section-box h1,
+.section-box h2,
+.section-box h3,
+.section-box h4,
+.section-box h5,
+.section-box h6 {
+  font-family: 'EB Garamond', Garamond, serif !important;
+}
+
+
+/* Increase size of all headings outside .section-box */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;    /* reset to inherit first, if needed */
+}
+
+:not(.section-box) h1,
+:not(.section-box) h2,
+:not(.section-box) h3,
+:not(.section-box) h4,
+:not(.section-box) h5,
+:not(.section-box) h6 {
+  font-size: 3em;     /* your desired size */
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 10px;   /* You can use 0 or any small value as you prefer */
+}
+/* Keep headings as they are (or as set previously) */
+
+/* Increase size of all other text elements except headings */
+body, 
+section, 
+.section-box, 
+p, 
+span, 
+a, 
+li, 
+ul, 
+ol, 
+button, 
+input, 
+textarea, 
+div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  font-size: 1.15rem;  /* Adjust this to your desired size */
+}
+/* Increase font size for Resume and CV buttons */
+.resume-button,
+.cv-button {
+  font-size: 3rem;  /* Match this to your other non-heading text size */
+  /* Optional: add padding or other styles if you want the buttons to look balanced */
+  padding: 10px 20px;
+  font-weight: 600;    /* Optional: make button text slightly bolder */
+  cursor: pointer;
+  /* You can also set font-family here if you want buttons to use Garamond or your chosen font */
+  font-family: 'EB Garamond', Garamond, serif;
 }
