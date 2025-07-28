@@ -443,19 +443,18 @@ h1, h2, h3, h4, h5 {
 
 .floating-btn-wrapper {
   position: absolute;
-  /* Adjust the top value for alignment with your first section-box: */
-  top: 58px;             /* Try 50–70px; increase/decrease as needed */
+  top: 58px;
   left: 0;
-  width: 170px;          /* Controls the available area for the button */
+  width: 170px;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;   /* Add this line */
+  align-items: flex-start;  /* Add this line */
   z-index: 10;
-  pointer-events: none;  /* Ensures this wrapper doesn't block interactions */
+  pointer-events: none;
 }
-
 .floating-btn-wrapper .resume-btn {
-  pointer-events: auto;  /* Only the button itself is clickable */
-  display: inline-block;
+  pointer-events: auto;
+  display: block;           /* Change to block */
   background: #222;
   color: #fff;
   font-weight: bold;
@@ -468,8 +467,13 @@ h1, h2, h3, h4, h5 {
   letter-spacing: 1px;
   transition: background 0.2s, box-shadow 0.2s, color 0.2s;
   cursor: pointer;
-  margin-left: 20px;
+  margin-bottom: 15px;      /* Add spacing between buttons */
 }
+
+.floating-btn-wrapper .resume-btn:last-child {
+  margin-bottom: 0;         /* No space after the last button */
+}
+
 
 .floating-btn-wrapper .resume-btn:hover,
 .floating-btn-wrapper .resume-btn:focus {
@@ -606,11 +610,11 @@ h1, h2, h3, h4, h5 {
   gap: 18px;
   padding: 18px 28px;
 }
-
 .cert-icon {
   width: 54px;
   height: 54px;
   object-fit: contain;
+  flex-shrink: 0; /* Prevents icon from shrinking */
 }
 
 .cert-text {
@@ -619,10 +623,9 @@ h1, h2, h3, h4, h5 {
   color: #000;
   margin: 0;
   white-space: nowrap;
-  flex-grow: 1;
-  /* Optional: If names are very long, use text-overflow: ellipsis */
-  overflow: hidden;
+  overflow: hidden; 
   text-overflow: ellipsis;
+  flex-grow: 1;
 }
 
 .download-link {
@@ -633,7 +636,7 @@ h1, h2, h3, h4, h5 {
   font-weight: bold;
   text-decoration: none;
   font-size: 1em;
-  margin-left: 8px;
+  margin-left: auto !important; 
   transition: background 0.2s, color 0.2s;
   outline: none;
   border: none;
@@ -707,3 +710,12 @@ h1, h2, h3, h4, h5 {
   }
 }
 
+.download-icon {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  background: url('assets/images/download-arrow.svg') no-repeat center center;
+  background-size: 20px 20px;
+  vertical-align: middle;
+  filter: invert(100%);
+}
