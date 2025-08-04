@@ -66,7 +66,7 @@ main {
   box-shadow: 0 4px 30px rgba(0,0,0,0.1);
   transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease, border 0.5s ease;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   width: 90%;
   max-width: 900px;
   box-sizing: border-box;
@@ -213,6 +213,7 @@ h1, h2, h3, h4, h5 {
   align-items: center;
   scroll-snap-align: start;
   min-width: 0;
+  justify-content: space-between;
 }
 .project-img {
   width: 100%;
@@ -521,7 +522,7 @@ h1, h2, h3, h4, h5 {
   padding: 0;
   margin-bottom: 22px;
   box-sizing: border-box;
-  overflow: visible;
+  overflow-X: visible;
   transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
   cursor: pointer;
 }
@@ -535,7 +536,7 @@ h1, h2, h3, h4, h5 {
   max-height: 0;
   opacity: 0;
   padding: 0 28px;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #fff8e7;
   border-radius: 0 0 18px 18px;
   margin-bottom: 0;
@@ -610,7 +611,7 @@ h1, h2, h3, h4, h5 {
   padding: 0;
   margin-bottom: 22px;
   box-sizing: border-box;
-  overflow: visible;
+  overflow-x: visible;
   transition: box-shadow 0.3s, background 0.3s, transform 0.3s;
   cursor: pointer;
 }
@@ -634,7 +635,7 @@ h1, h2, h3, h4, h5 {
   color: #000;
   margin: 0;
   white-space: nowrap;
-  overflow: hidden; 
+  overflow-x: hidden; 
   text-overflow: ellipsis;
   flex-grow: 1;
 }
@@ -669,7 +670,7 @@ h1, h2, h3, h4, h5 {
   max-height: 0;
   opacity: 0;
   padding: 0 28px;
-  overflow: hidden;
+  overflow-x: hidden;
   background: #fff8e7;
   border-radius: 0 0 18px 18px;
   margin-bottom: 0;
@@ -723,19 +724,19 @@ h1, h2, h3, h4, h5 {
 
 .download-icon {
   display: inline-block;
-  width: 26px;
-  height: 26px;
+  width: 46px;
+  height: 46px;
   background: url('assets/images/download-arrow.svg') no-repeat center center;
-  background-size: 20px 20px;
+  background-size: 40px 40px;
   vertical-align: middle;
   filter: invert(100%);
 }
 .project-actions {
   display: flex;
   flex-direction: row;    /* Ensures children are in a row */
-  gap: 18px;              /* Space between icons */
+  gap: 38px;              /* Space between icons */
   margin-top: 12px;
-  justify-content: flex-start; /* Align left (or use center if you prefer) */
+  justify-content: center; /* Align left (or use center if you prefer) */
 }
 
 .project-action-btn {
@@ -756,17 +757,17 @@ h1, h2, h3, h4, h5 {
 }
 
 .icon-btn {
-  width: 28px;
-  height: 28px;
+  width: 45px;
+  height: 45px;
 }
 
 .download-icon {
   display: inline-block;
-  width: 28px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
   background: url('assets/images/download-arrow.svg') no-repeat center center;
   filter: invert(0);
-  background-size: 24px 24px;
+  background-size: 40px 40px;
 }
 .project-download-icon {
   filter: invert(0);
@@ -780,11 +781,11 @@ h1, h2, h3, h4, h5 {
 }
 .project-download-icon {
   display: inline-block;
-  width: 28px;
-  height: 28px;
+  width: 48px;
+  height: 48px;
   background: url('assets/images/DOWNLOAD.svg') no-repeat center center;
-  background-size: 24px 24px;
-  vertical-align: middle;
+  background-size: 44px 44px;
+  vertical-align: line-middle;
   filter: invert(0); /* Default: show exact icon color */
 }
 
@@ -881,3 +882,99 @@ div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   /* You can also set font-family here if you want buttons to use Garamond or your chosen font */
   font-family: 'EB Garamond', Garamond, serif;
 }
+body.dark-mode {
+  background-color: #f6f6f6;
+  color: #000;
+}
+body.dark-mode .section-box {
+  background: #ffffff;
+  border: 2px solid #dcdcdc;
+}
+body.dark-mode h2, 
+body.dark-mode .project-title, 
+body.dark-mode .cert-text, 
+body.dark-mode .intern-text,
+body.dark-mode .language-text,
+body.dark-mode .contact-section span {
+  color: #000;
+}
+body.dark-mode .resume-btn {
+  background: #000;
+  color: #fff;
+}
+body.dark-mode .resume-btn:hover {
+  background: #3742fa;
+}
+#scrollTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 25px;
+  z-index: 999;
+  font-size: 24px;
+  border: none;
+  outline: none;
+  background-color: #3742fa;
+  color: white;
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+#scrollTopBtn:hover {
+  background-color: #222;
+}
+
+#quickNav {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 10px 6px;
+  border-radius: 8px 0 0 8px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#quickNav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 10px;
+  background-color: #3742fa;
+  border-radius: 4px;
+  font-size: 0.95em;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-box {
+  scroll-margin-top: 100px;
+}
+
+
+
+
+.section-box {
+  scroll-margin-top: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+main {
+  min-height: 200vh;
+}
+.project-action-btn:hover {
+  transform: scale(1.15);
+  filter: brightness(1.3);
+}
+
+
+

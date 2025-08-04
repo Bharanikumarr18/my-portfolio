@@ -12,9 +12,10 @@
 </head>
 <body>
 <div class="floating-btn-wrapper">
+
   <a href="assets/certificates/resume.pdf" download="Bharani_Resume.pdf" class="resume-btn">Resume</a>
 <a href="assets/certificates/cv.pdf" download="Bharani_CV.pdf" class="resume-btn">CV</a>
-
+  
 </div>
 <!-- test change -->
 
@@ -99,7 +100,7 @@
   <a href="https://github.com/bharanikumarr18/MARUTI-EV-CONVERSION" target="_blank" rel="noopener" class="project-action-btn" aria-label="View on GitHub">
     <img src="assets/images/github-icon.svg" alt="GitHub" class="icon-btn" />
   </a>
-<a href="assets/pdfs/your-project.pdf" download class="project-action-btn" aria-label="Download PDF">
+<a href="assets/project/evconversionminiproject.pdf" download class="project-action-btn" aria-label="Download PDF">
   <span class="project-download-icon"></span>
 </a>
 </div>
@@ -108,22 +109,23 @@
           <img src="assets/images/cleaner.png" alt="Designing an Aquatic Cleanup Vehicle" class="project-img" />
           <div class="project-title">DESIGNING AN AQUATIC CLEANUP VEHICLE</div>
           <div class="project-actions">
-  <a href="https://github.com/YourUsername/project-repo" target="_blank" rel="noopener" class="project-action-btn" aria-label="View on GitHub">
+  <a href="https://github.com/Bharanikumarr18/Design-analysis-of-water-body-cleaning-vehicle/blob/main/README.md" target="_blank" rel="noopener" class="project-action-btn" aria-label="View on GitHub">
     <img src="assets/images/github-icon.svg" alt="GitHub" class="icon-btn" />
   </a>
-<a href="assets/pdfs/your-project.pdf" download class="project-action-btn" aria-label="Download PDF">
+<a href="assets/project/finalproject.pdf" download class="project-action-btn" aria-label="Download PDF">
   <span class="project-download-icon"></span>
 </a>
-</div>
+</div>  
         </div>
         <div class="project-card">
           <img src="assets/images/fan.jpg" alt="Design and Fabrication of CPU Fan using FUSION 360" class="project-img" />
           <div class="project-title">DESIGN AND FABRICATION OF CPU FAN USING FUSION 360</div>
           <div class="project-actions">
-  <a href="https://github.com/YourUsername/project-repo" target="_blank" rel="noopener" class="project-action-btn" aria-label="View on GitHub">
+            
+  <a href="https://github.com/Bharanikumarr18/cpu-fan-fusion360-project/blob/main/README.md" target="_blank" rel="noopener" class="project-action-btn" aria-label="View on GitHub">
     <img src="assets/images/github-icon.svg" alt="GitHub" class="icon-btn" />
   </a>
-  <a href="assets/pdfs/your-project.pdf" download class="project-action-btn" aria-label="Download PDF">
+  <a href="assets/project/cpufanminiproject.pdf" download class="project-action-btn" aria-label="Download PDF">
   <span class="project-download-icon"></span>
 </a>
 
@@ -131,6 +133,7 @@
 
         </div>
       </div>
+      
     </section>
 
     <!-- Certifications Section -->
@@ -280,6 +283,23 @@
 </section>
      
   </main>
+  <button id="scrollTopBtn" title="Go to top">↑</button>
+<script>
+  const scrollBtn = document.getElementById('scrollTopBtn');
+
+  window.onscroll = () => {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollBtn.style.display = "block";
+    } else {
+      scrollBtn.style.display = "none";
+    }
+  };
+
+  scrollBtn.onclick = () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  };
+</script>
 </body>
 
 </html>
