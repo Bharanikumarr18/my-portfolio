@@ -883,7 +883,7 @@ div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-family: 'EB Garamond', Garamond, serif;
 }
 body.dark-mode {
-  background-color: #f6f6f6;
+  background-color: #f5e3be;
   color: #000;
 }
 body.dark-mode .section-box {
@@ -978,3 +978,39 @@ main {
 
 
 
+.reveal-on-scroll { 
+  opacity: 0; 
+  transform: translateY(48px); 
+  transition: opacity 0.7s, transform 0.7s;
+}
+.reveal-on-scroll.active {
+  opacity: 1; 
+  transform: translateY(0);
+}
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+body:not(.dark-mode) .your-name {
+  color: #ffffff;
+}
+
+body.dark-mode .your-name {
+  color: #020202;
+}
+
+/* Switch in day mode (default) */
+.switch .slider {
+  background: #eee;        /* You can try #fff for pure white */
+  border: 1px solid #e0e0e0;
+}
+
+.switch input:checked + .slider {
+  background: #ffffff;        /* For night mode */
+  border: 1px solid #444444;
+}
