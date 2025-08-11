@@ -7,7 +7,12 @@ body {
   padding: 0;
   color: #000000;
   overflow-x: hidden;
+  transform: scale(1);   /* Scales everything to 110% (i.e., increases by 10%) */
 }
+html {
+  font-size: 105%; /* Makes everything set with rem/em units scale up by 10% */
+}
+
 
 main {
   padding: 20px;
@@ -883,7 +888,7 @@ div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-family: 'EB Garamond', Garamond, serif;
 }
 body.dark-mode {
-  background-color: #f5e3be;
+  background-color: #91d676;
   color: #000;
 }
 body.dark-mode .section-box {
@@ -926,29 +931,7 @@ body.dark-mode .resume-btn:hover {
   background-color: #222;
 }
 
-#quickNav {
-  position: fixed;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.85);
-  padding: 10px 6px;
-  border-radius: 8px 0 0 8px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-#quickNav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 6px 10px;
-  background-color: #3742fa;
-  border-radius: 4px;
-  font-size: 0.95em;
-  text-align: center;
-  transition: background 0.3s;
-}
+
 
 html {
   scroll-behavior: smooth;
@@ -1004,13 +987,23 @@ body.dark-mode .your-name {
   color: #020202;
 }
 
-/* Switch in day mode (default) */
+/* Day mode (default or not checked) */
 .switch .slider {
-  background: #eee;        /* You can try #fff for pure white */
-  border: 1px solid #e0e0e0;
+  background: #ffffff; /* light for day mode */
+}
+.switch .moon {
+  background: #00b7ff; /* yellow moon for day */
 }
 
+/* Dark mode (body. dark-mode or:input:checked) */
+body.dark-mode .switch .slider,
 .switch input:checked + .slider {
-  background: #ffffff;        /* For night mode */
-  border: 1px solid #444444;
+  background: #222; /* dark background for night */
+}
+body.dark-mode .switch .moon,
+.switch input:checked + .slider .moon {
+  background: #fff; /* white moon for night */
+}
+.switch {
+  transform: scale(1.25);
 }
