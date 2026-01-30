@@ -1007,3 +1007,13 @@ body.dark-mode .switch .moon,
 .switch {
   transform: scale(1.25);
 }
+
+.hero-tagline {
+  font-size: 1.2em;
+  color: #dcdcdc;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+body.dark-mode .hero-tagline {
+  color: #333;
+}
