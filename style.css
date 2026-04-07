@@ -284,7 +284,9 @@ h1, h2, h3, h4, h5 {
   font-size: 1.08em;
   color: #000;
   margin: 0;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
 }
 .download-link,
 .intern-download-link {
@@ -373,21 +375,30 @@ h1, h2, h3, h4, h5 {
     padding: 8px 2vw;
   }
 .floating-btn-wrapper {
-  position: absolute;
-  top: 55px !important;     /* or whatever your current value is */
-  left: 0;
-  width: 170px;
+  position: static !important;
+  top: auto !important;
+  left: auto;
+  width: 100%;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   z-index: 10;
-  pointer-events: none;
+  pointer-events: auto;
+  padding: 12px 12px 0;
+  box-sizing: border-box;
 }
 
-  .resume-btn {
-    width: 90vw;
-    max-width: 320px;
-    padding: 12px 0;
+  .resume-btn,
+  .floating-btn-wrapper .resume-btn {
+    width: auto;
+    max-width: none;
+    padding: 10px 16px;
     margin-left: 0;
+    margin-bottom: 0;
+    font-size: 1rem;
   }
   .projects-container {
     gap: 18px;
@@ -413,11 +424,15 @@ h1, h2, h3, h4, h5 {
     width: 140px;
     height: 140px;
   }
+  .your-name {
+    font-size: 2.1em;
+  }
   .section-box, main {
-    width: 100vw;
-    max-width: 100vw;
-    margin: 0;
-    padding: 4vw 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 4vw 3vw;
+    box-sizing: border-box;
   }
   .projects-container {
     flex-direction: column;
@@ -425,11 +440,11 @@ h1, h2, h3, h4, h5 {
     overflow-x: visible;
   }
   .project-card {
-    width: 98vw;
-    max-width: 98vw;
+    width: 100%;
+    max-width: 100%;
   }
   .project-img {
-    width: 96vw;
+    width: 100%;
     max-width: 320px;
     height: auto;
   }
@@ -453,7 +468,8 @@ h1, h2, h3, h4, h5 {
     padding: 12px 10px;
     gap: 8px;
     align-items: flex-start;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
   }
   .resume-btn {
     padding: 10px 20px;
@@ -505,15 +521,47 @@ h1, h2, h3, h4, h5 {
 
 @media (max-width: 600px) {
   .floating-btn-wrapper {
-    width: 100vw;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 8px;
+    padding: 10px 12px 0;
+    box-sizing: border-box;
   }
   .floating-btn-wrapper .resume-btn {
-    width: 95vw;
-    max-width: 340px;
+    width: auto;
+    max-width: 100%;
     margin: 0 0 9px 0;
-    padding: 10px 0;
+    padding: 10px 14px;
     font-size: 1em;
+  }
+}
+
+/* Final mobile override for floating buttons (kept after base styles for cascade safety) */
+@media (max-width: 900px) {
+  .floating-btn-wrapper {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px;
+    pointer-events: auto !important;
+    padding: 12px 12px 0 !important;
+    box-sizing: border-box;
+  }
+
+  .floating-btn-wrapper .resume-btn {
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 0 9px 0 !important;
+    margin-left: 0 !important;
+    padding: 10px 14px !important;
+    font-size: 1rem !important;
   }
 }
 .intern-box {
@@ -564,7 +612,7 @@ h1, h2, h3, h4, h5 {
 }
 .intern-box:hover .intern-details,
 .intern-box:focus-within .intern-details {
-  max-height: 250px;     /* Must be >= the tallest details paragraph, or use a bigger number like 500px */
+  max-height: 520px;
   opacity: 1;
   margin-bottom: 12px;
   padding: 16px 28px 18px 46px;
@@ -639,9 +687,11 @@ h1, h2, h3, h4, h5 {
   font-size: 1.08em;
   color: #000;
   margin: 0;
-  white-space: nowrap;
-  overflow-x: hidden; 
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  overflow-wrap: anywhere;
+  line-height: 1.25;
   flex-grow: 1;
 }
 
@@ -697,7 +747,7 @@ h1, h2, h3, h4, h5 {
 }
 .cert-box:hover .cert-details,
 .cert-box:focus-within .cert-details {
-  max-height: 200px;  /* Increase if you have longer paragraphs */
+  max-height: 420px;
   opacity: 1;
   margin-bottom: 12px;
   padding: 16px 28px 18px 46px;
@@ -714,6 +764,35 @@ h1, h2, h3, h4, h5 {
   margin: 0;
   font-size: 1.08em;
   color: #443d36;
+}
+
+/* Touch devices: keep details visible because hover is inconsistent on phones/tablets */
+@media (hover: none), (pointer: coarse) {
+  .intern-box,
+  .cert-box {
+    cursor: default;
+  }
+
+  .intern-box:hover,
+  .intern-box:focus-within,
+  .cert-box:hover,
+  .cert-box:focus-within {
+    transform: none;
+  }
+
+  .intern-details,
+  .cert-details,
+  .intern-box:hover .intern-details,
+  .intern-box:focus-within .intern-details,
+  .cert-box:hover .cert-details,
+  .cert-box:focus-within .cert-details {
+    max-height: none;
+    opacity: 1;
+    margin-bottom: 12px;
+    padding: 16px 20px 18px 20px;
+    animation: none;
+    box-shadow: none;
+  }
 }
 
 /* Responsive adjustments */
@@ -862,8 +941,6 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Increase size of all other text elements except headings */
 body, 
-section, 
-.section-box, 
 p, 
 span, 
 a, 
@@ -872,9 +949,8 @@ ul,
 ol, 
 button, 
 input, 
-textarea, 
-div:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  font-size: 1.15rem;  /* Adjust this to your desired size */
+textarea {
+  font-size: 1rem;
 }
 /* Increase font size for Resume and CV buttons */
 .resume-button,
@@ -952,7 +1028,7 @@ html {
   scroll-behavior: smooth;
 }
 main {
-  min-height: 200vh;
+  min-height: 100vh;
 }
 .project-action-btn:hover {
   transform: scale(1.15);
