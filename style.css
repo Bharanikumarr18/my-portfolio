@@ -1093,3 +1093,188 @@ body.dark-mode .switch .moon,
 body.dark-mode .hero-tagline {
   color: #333;
 }
+
+/* ===============================
+   Mobile Layout Stabilizer
+   Keeps desktop as-is, fixes phone alignment/cascade conflicts
+================================ */
+@media (max-width: 900px) {
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 12px !important;
+    box-sizing: border-box;
+  }
+
+  .section-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 14px auto !important;
+    padding: 18px 14px !important;
+    border-radius: 20px !important;
+    box-sizing: border-box;
+  }
+
+  .section-box:hover,
+  .cert-box:hover,
+  .intern-box:hover {
+    transform: none !important;
+  }
+
+  .floating-btn-wrapper {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    pointer-events: auto !important;
+    padding: 10px 12px 0 !important;
+    box-sizing: border-box;
+  }
+
+  .floating-btn-wrapper .resume-btn {
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 0 8px 0 !important;
+    padding: 10px 14px !important;
+    font-size: 0.95rem !important;
+    line-height: 1.2;
+  }
+
+  .contact-item {
+    min-width: 0 !important;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .contact-section span {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 600px) {
+  .your-name {
+    font-size: 1.95em !important;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .hero-tagline {
+    font-size: 1em;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .profile-pic {
+    width: 132px !important;
+    height: 132px !important;
+    top: 0 !important;
+    margin-top: 8px !important;
+  }
+
+  h2 {
+    font-size: 1.55em !important;
+    margin-bottom: 14px !important;
+  }
+
+  .justify-text,
+  .styled-list,
+  .intern-details p,
+  .cert-details p,
+  .contact-section span,
+  .language-text {
+    font-size: 0.98rem !important;
+    line-height: 1.55 !important;
+  }
+
+  .projects-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 18px !important;
+    overflow: visible !important;
+    padding-bottom: 0 !important;
+  }
+
+  .project-card {
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+  }
+
+  .project-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .project-actions {
+    gap: 24px !important;
+  }
+
+  .intern-box,
+  .cert-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 16px !important;
+  }
+
+  .intern-content,
+  .cert-content {
+    width: 100%;
+    padding: 14px 12px !important;
+    gap: 12px !important;
+    align-items: center !important;
+    box-sizing: border-box;
+  }
+
+  .intern-icon,
+  .cert-icon {
+    width: 42px !important;
+    height: 42px !important;
+    flex-shrink: 0;
+  }
+
+  .intern-text,
+  .cert-text {
+    min-width: 0;
+    font-size: 0.98rem !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .intern-details,
+  .cert-details {
+    width: 100%;
+    padding: 12px !important;
+    box-sizing: border-box;
+  }
+
+  .languages-section .language-item-row {
+    flex-direction: row !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-align: center;
+  }
+
+  .language-items-vertical {
+    gap: 16px !important;
+  }
+
+  .switch {
+    transform: scale(1.05) !important;
+  }
+
+  #scrollTopBtn {
+    right: 14px !important;
+    bottom: 16px !important;
+    padding: 8px 12px !important;
+    font-size: 20px !important;
+  }
+}
